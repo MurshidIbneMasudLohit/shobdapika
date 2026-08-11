@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>শব্দাপিকা - App Store</title>
+    <title>শব্দাপিকা - ডাউনলোড</title>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ios-blue: #007AFF;
-            --ios-green: #34C759;
+            --brand-green: #15803D;
+            --brand-light: #F0FDF4;
             --text-main: #000000;
             --text-secondary: #8E8E93;
-            --bg-ios: #FFFFFF;
             --border-ios: #E5E5EA;
             --surface-ios: #F2F2F7;
-            
             --font-main: 'Hind Siliguri', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
@@ -27,246 +25,412 @@
 
         body {
             font-family: var(--font-main);
-            background-color: var(--bg-ios);
+            background-color: #FFFFFF;
             color: var(--text-main);
-            line-height: 1.5;
+            line-height: 1.4;
+            overflow-x: hidden;
         }
 
-        .store-container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px 20px 100px;
-        }
-
-        /* App Header Section */
-        .app-header {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 30px;
-            align-items: flex-start;
-        }
-
-        .app-icon {
-            width: 120px;
-            height: 120px;
-            border-radius: 26px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border: 1px solid var(--border-ios);
-            object-fit: cover;
-        }
-
-        .app-info {
-            flex: 1;
-        }
-
-        .app-name {
-            font-size: 26px;
-            font-weight: 800;
-            margin-bottom: 4px;
-            letter-spacing: -0.5px;
-        }
-
-        .app-sub {
-            font-size: 16px;
-            color: var(--text-secondary);
-            font-weight: 500;
-            margin-bottom: 15px;
-        }
-
-        .btn-get {
-            display: inline-block;
-            background-color: var(--ios-blue);
-            color: white;
-            padding: 8px 28px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 15px;
-            text-transform: uppercase;
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-        .btn-get:active { opacity: 0.7; }
-
-        /* Quick Stats */
-        .quick-stats {
+        .navbar {
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 0.5px solid var(--border-ios);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             display: flex;
             justify-content: space-between;
-            padding: 20px 0;
-            border-top: 1px solid var(--border-ios);
-            border-bottom: 1px solid var(--border-ios);
-            margin-bottom: 30px;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-weight: 800;
+            font-size: 18px;
+            color: var(--brand-green);
+            text-decoration: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 16px 16px 80px;
+        }
+
+        /* Stats Bar */
+        .stats-grid {
+            display: flex;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 0.5px solid var(--border-ios);
             text-align: center;
         }
 
         .stat-box {
             flex: 1;
+            border-right: 0.5px solid var(--border-ios);
         }
-        .stat-label {
-            display: block;
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            margin-bottom: 4px;
-        }
-        .stat-value {
-            font-size: 18px;
-            font-weight: 800;
-            color: var(--text-secondary);
-        }
-        .stat-star {
-            color: #FF9500;
-            margin-right: 2px;
+        .stat-box:last-child { border-right: none; }
+
+        .stat-label { display: block; font-size: 10px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 2px; }
+        .stat-value { font-size: 16px; font-weight: 800; color: var(--text-secondary); }
+
+        /* App Header */
+        .app-header {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
         }
 
-        /* Screenshots placeholder */
-        .screenshots {
+        .app-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 22px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 0.5px solid var(--border-ios);
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .app-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-bottom: 2px;
+        }
+
+        .app-name {
+            font-size: 24px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 2px;
+        }
+
+        .app-sub {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        /* Download Button */
+        .dl-container {
+            position: relative;
+            width: 140px; 
+            height: 42px;
+        }
+
+        .btn-get {
+            background-color: var(--brand-green);
+            color: white;
+            padding: 8px 0;
+            width: 100%;
+            border-radius: 21px;
+            font-weight: 800;
+            font-size: 14px; /* Slightly adjusted to fit new text */
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        .btn-get:active { transform: scale(0.95); opacity: 0.8; }
+        .btn-get.loading { background-color: var(--surface-ios); color: transparent; cursor: not-allowed; }
+
+        .ring-loader {
+            display: none;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 22px; height: 22px;
+            border: 3px solid var(--brand-green);
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
+
+        .section-title { font-size: 18px; font-weight: 800; margin-bottom: 12px; }
+        
+        /* Screenshots */
+        .screenshot-scroll {
             display: flex;
             gap: 12px;
             overflow-x: auto;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
+            padding-bottom: 8px;
+            margin-bottom: 24px;
             scrollbar-width: none;
         }
-        .screenshots::-webkit-scrollbar { display: none; }
-        
+        .screenshot-scroll::-webkit-scrollbar { display: none; }
+
         .screenshot-item {
-            min-width: 220px;
-            height: 400px;
+            min-width: 200px;
+            height: 420px;
             background: var(--surface-ios);
-            border-radius: 18px;
-            border: 1px solid var(--border-ios);
+            border-radius: 16px;
+            border: 0.5px solid var(--border-ios);
+            flex-shrink: 0;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-secondary);
-            font-size: 13px;
+        }
+        .screenshot-item img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .screenshot-item img:active {
+            opacity: 0.7;
         }
 
-        /* Description */
-        .section-title {
-            font-size: 20px;
-            font-weight: 800;
-            margin-bottom: 12px;
+        /* Information Cards */
+        .info-card {
+            margin-bottom: 24px;
+            border-bottom: 0.5px solid var(--border-ios);
+            padding-bottom: 20px;
         }
-        .desc-text {
-            font-size: 15px;
-            color: #3A3A3C;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
+        .desc-text { font-size: 14.5px; color: #333; line-height: 1.6; }
 
-        /* Info Table */
-        .info-table {
-            width: 100%;
-        }
         .info-row {
             display: flex;
             justify-content: space-between;
             padding: 12px 0;
-            border-bottom: 1px solid var(--border-ios);
+            border-bottom: 0.5px solid var(--border-ios);
             font-size: 14px;
         }
         .info-label { color: var(--text-secondary); }
         .info-value { font-weight: 500; text-align: right; }
 
-        /* Footer */
         .footer {
-            margin-top: 50px;
+            margin-top: 40px;
             text-align: center;
-            font-size: 13px;
+            font-size: 12.5px;
             color: var(--text-secondary);
         }
+        .link-green { color: var(--brand-green); font-weight: 700; text-decoration: none; }
 
-        @media (max-width: 480px) {
-            .app-icon { width: 90px; height: 90px; border-radius: 20px; }
-            .app-name { font-size: 22px; }
-            .screenshot-item { min-width: 180px; height: 320px; }
+        /* --- Image Preview Modal (Lightbox) Styles --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal.show {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            object-fit: contain;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        .modal.show .modal-content {
+            transform: scale(1);
+        }
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            color: #ffffff;
+            font-size: 40px;
+            font-weight: 300;
+            cursor: pointer;
+            z-index: 10000;
+            line-height: 1;
+            padding: 10px;
+        }
+        .close-modal:hover {
+            color: #cccccc;
         }
     </style>
 </head>
 <body>
 
-    <div class="store-container">
-        <!-- Header -->
-        <div class="app-header">
-            <img src="https://raw.githubusercontent.com/MurshidIbneMasudLohit/shobdapika/refs/heads/main/ChatGPT%20Image%20%E0%A7%AE%20%E0%A6%86%E0%A6%97%2C%20%E0%A7%A8%E0%A7%A6%E0%A7%A8%E0%A7%AC%2C%20%E0%A7%A6%E0%A7%AA_%E0%A7%A6%E0%A7%A9_%E0%A7%AB%E0%A7%AA%20PM.png" alt="Icon" class="app-icon">
-            <div class="app-info">
-                <h1 class="app-name">শব্দাপিকা</h1>
-                <p class="app-sub">স্বাধীন বাংলা ডিজিটাল প্রকাশনা</p>
-                <a href="https://github.com/MurshidIbneMasudLohit/shobdapika/raw/refs/heads/MurshidIbneMasudLohit-patch-1/Shobdapika.apk" class="btn-get" id="dlBtn">ডাউনলোড</a>
-            </div>
+    <nav class="navbar">
+        <a href="https://shobdapika.web.app/" class="nav-brand">Shobdapika</a>
+        <a href="https://www.facebook.com/Shobdapika" target="_blank" class="link-green">যোগাযোগ</a>
+    </nav>
+
+    <div class="container">
+        
+        <!-- Age, Size, Version -->
+        <div class="stats-grid">
+            <div class="stat-box"><span class="stat-label">বয়স</span><span class="stat-value">১২+</span></div>
+            <div class="stat-box"><span class="stat-label">সাইজ</span><span class="stat-value">১০.৮ MB</span></div>
+            <div class="stat-box"><span class="stat-label">সংস্করণ</span><span class="stat-value">১.০.০</span></div>
         </div>
 
-        <!-- Quick Stats -->
-        <div class="quick-stats">
-            <div class="stat-box" style="border-right: 1px solid #E5E5EA;">
-                <span class="stat-label">রেটিং</span>
-                <span class="stat-value"><span class="stat-star">★</span>৫.০</span>
+        <!-- Header -->
+        <header class="app-header">
+            <img src="https://github.com/MurshidIbneMasudLohit/shobdapika/blob/MurshidIbneMasudLohit-patch-1/ChatGPT%20Image%20%E0%A7%AE%20%E0%A6%86%E0%A6%97,%20%E0%A7%A8%E0%A7%A6%E0%A7%A8%E0%A7%AC,%20%E0%A7%A6%E0%A7%AA_%E0%A7%A6%E0%A7%A9_%E0%A7%AB%E0%A7%AA%20PM.png?raw=true" alt="Logo" class="app-icon">
+            <div class="app-info">
+                <div>
+                    <h1 class="app-name">শব্দাপিকা</h1>
+                    <p class="app-sub">একটি ব্যক্তিগত বাংলা প্রকাশনা উদ্যোগ</p>
+                </div>
+                <div class="dl-container">
+                    <button class="btn-get" id="dlBtn">ডাউনলোড</button>
+                    <div class="ring-loader" id="loader"></div>
+                </div>
             </div>
-            <div class="stat-box" style="border-right: 1px solid #E5E5EA;">
-                <span class="stat-label">বয়স</span>
-                <span class="stat-value">১২+</span>
-            </div>
-            <div class="stat-box">
-                <span class="stat-label">সাইজ</span>
-                <span class="stat-value">১০.৮ MB</span>
-            </div>
-        </div>
+        </header>
 
         <!-- Screenshots -->
         <h2 class="section-title">প্রিভিউ</h2>
-        <div class="screenshots">
-            <div class="screenshot-item">ফিড ও হোম পেজ</div>
-            <div class="screenshot-item">আর্টিকেল এডিটর</div>
-            <div class="screenshot-item">ইউজার প্রোফাইল</div>
-            <div class="screenshot-item">ডার্ক মোড সাপোর্ট</div>
+        <div class="screenshot-scroll">
+            <div class="screenshot-item">
+                <img src="https://github.com/MurshidIbneMasudLohit/shobdapika/blob/MurshidIbneMasudLohit-patch-1/shobdapika_play_store_05.png?raw=true" alt="Screen 1">
+            </div>
+            <div class="screenshot-item">
+                <img src="https://github.com/MurshidIbneMasudLohit/shobdapika/blob/MurshidIbneMasudLohit-patch-1/shobdapika_play_store_06.png?raw=true" alt="Screen 2">
+            </div>
+            <div class="screenshot-item">
+                <img src="https://github.com/MurshidIbneMasudLohit/shobdapika/blob/MurshidIbneMasudLohit-patch-1/shobdapika_play_store_01.png?raw=true" alt="Screen 3">
+            </div>
+            <div class="screenshot-item">
+                <img src="https://github.com/MurshidIbneMasudLohit/shobdapika/blob/MurshidIbneMasudLohit-patch-1/shobdapika_play_store_07.png?raw=true" alt="Screen 4">
+            </div>
+            <div class="screenshot-item">
+                <img src="https://github.com/MurshidIbneMasudLohit/shobdapika/blob/MurshidIbneMasudLohit-patch-1/shobdapika_play_store_09.png?raw=true" alt="Screen 5">
+            </div>
+            <div class="screenshot-item">
+                <img src="https://github.com/MurshidIbneMasudLohit/shobdapika/blob/MurshidIbneMasudLohit-patch-1/shobdapika_play_store_02.png?raw=true" alt="Screen 6">
+            </div>
+            <div class="screenshot-item">
+                <img src="https://github.com/MurshidIbneMasudLohit/shobdapika/blob/MurshidIbneMasudLohit-patch-1/shobdapika_play_store_08.png?raw=true" alt="Screen 7">
+            </div>
+            <div class="screenshot-item">
+                <img src="https://github.com/MurshidIbneMasudLohit/shobdapika/blob/MurshidIbneMasudLohit-patch-1/shobdapika_play_store_04.png?raw=true" alt="Screen 8">
+            </div>
+            <div class="screenshot-item">
+                <img src="https://github.com/MurshidIbneMasudLohit/shobdapika/blob/MurshidIbneMasudLohit-patch-1/shobdapika_play_store_01.png?raw=true" alt="Screen 9">
+            </div>
+        </div>
+
+        <!-- Release Notes -->
+        <div class="info-card">
+            <h2 class="section-title">নতুন কী আছে</h2>
+            <div class="desc-text">শব্দাপিকার প্রথম পথচলা শুরু! এখন আপনি নিজের বাংলা লেখাগুলো এখানে সেভ করে রাখতে পারবেন এবং অন্যদের পড়ার জন্য পাবলিশ করতে পারবেন। গুগল লগইন এবং ড্রাফট সেভ করার সুবিধা যুক্ত করা হয়েছে।</div>
         </div>
 
         <!-- Description -->
-        <h2 class="section-title">বর্ণনা</h2>
-        <div class="desc-text">
-            শব্দাপিকা হলো একটি পেশাদার ডিজিটাল প্রকাশনা প্ল্যাটফর্ম যা মূলত বাংলা সাহিত্য এবং মৌলিক বিষয়বস্তু প্রচারের জন্য তৈরি করা হয়েছে। কোনো বিজ্ঞাপন ছাড়াই আপনি এখানে আপনার সৃজনশীল লেখাগুলো প্রকাশ করতে পারবেন। এটি লেখক এবং মানসম্মত পাঠকদের মধ্যে সংযোগ স্থাপন করতে একটি নিরাপদ ও আধুনিক পরিবেশ প্রদান করে।
+        <div class="info-card">
+            <h2 class="section-title">বর্ণনা</h2>
+            <p class="desc-text">শব্দাপিকা মূলত বাংলা ভাষায় নিজের গল্প বা কবিতাগুলো লিখে রাখা এবং শেয়ার করার জন্য একটি ছোট প্ল্যাটফর্ম। এটি কোনো বড় কোম্পানির প্রজেক্ট নয়, বরং একজন স্বতন্ত্র ডেভেলপারের ব্যক্তিগত প্রচেষ্টা। অ্যাপটিতে কোনো বিজ্ঞাপন নেই, আপনি খুব সহজেই আপনার মৌলিক চিন্তাগুলো অন্যদের কাছে পৌঁছে দিতে পারবেন।</p>
         </div>
 
-        <!-- Information -->
+        <!-- Tech Info -->
         <h2 class="section-title">তথ্য</h2>
         <div class="info-table">
-            <div class="info-row">
-                <span class="info-label">ডেভেলপার</span>
-                <span class="info-value">মুরশিদ ইবনে মাসুদ লোহিত</span>
-            </div>
-            <div class="info-row">
-                <span class="info-label">সাইজ</span>
-                <span class="info-value">১০.৮ মেগাবাইট</span>
-            </div>
-            <div class="info-row">
-                <span class="info-label">বিভাগ</span>
-                <span class="info-value">বই ও রেফারেন্স</span>
-            </div>
-            <div class="info-row">
-                <span class="info-label">সামঞ্জস্যতা</span>
-                <span class="info-value">অ্যান্ড্রয়েড ৭.০ বা তার উপরে</span>
-            </div>
-            <div class="info-row">
-                <span class="info-label">ভাষা</span>
-                <span class="info-value">বাংলা</span>
-            </div>
-            <div class="info-row">
-                <span class="info-label">সংস্করণ</span>
-                <span class="info-value">১.০.০</span>
-            </div>
+            <div class="info-row"><span class="info-label">ডেভেলপার</span><span class="info-value">মুরশিদ ইবনে মাসুদ লোহিত</span></div>
+            <div class="info-row"><span class="info-label">প্যাকেজ নেম</span><span class="info-value">com.shobdapika</span></div>
+            <div class="info-row"><span class="info-label">সিস্টেম</span><span class="info-value">অ্যান্ড্রয়েড ৭.০ বা তার উপরে</span></div>
         </div>
 
         <div class="footer">
-            © ২০২৬ শব্দাপিকা | সর্বস্বত্ব সংরক্ষিত
+            © ২০২৬ শব্দাপিকা | <a href="https://shobdapika.web.app/" class="link-green">shobdapika.web.app</a> <br>
+            ফেসবুক পেজ: <a href="https://www.facebook.com/Shobdapika" target="_blank" class="link-green">facebook.com/Shobdapika</a>
         </div>
     </div>
 
+    <!-- Image Preview Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal" id="closeModalBtn">&times;</span>
+        <img class="modal-content" id="modalImg" alt="Preview">
+    </div>
+
     <script>
-        document.getElementById('dlBtn').addEventListener('click', function(e) {
-            // Optional: Add basic analytics or animation here
-            console.log('Download started...');
+        // --- Download Button Logic ---
+        const dlBtn = document.getElementById('dlBtn');
+        const loader = document.getElementById('loader');
+        const apkUrl = "https://github.com/MurshidIbneMasudLohit/shobdapika/raw/refs/heads/MurshidIbneMasudLohit-patch-1/Shobdapika.apk";
+        
+        let isDownloading = false; // ডাউনলোড স্টেট ট্র্যাক করার জন্য
+
+        dlBtn.addEventListener('click', function() {
+            // যদি ডাউনলোড চলতে থাকে, তাহলে ক্লিক ইগনোর করবে
+            if (isDownloading) return;
+
+            isDownloading = true; // ডাউনলোড শুরু হলো
+            dlBtn.classList.add('loading');
+            loader.style.display = 'block';
+
+            setTimeout(() => {
+                window.location.href = apkUrl; // ফাইল ডাউনলোড শুরু হবে
+                
+                setTimeout(() => {
+                    dlBtn.classList.remove('loading');
+                    loader.style.display = 'none';
+                    
+                    // 'ওপেন' এর বদলে মিনিংফুল মেসেজ দেখানো হলো
+                    dlBtn.innerText = 'ডাউনলোড সম্পন্ন'; 
+                    dlBtn.style.backgroundColor = '#E5E5EA';
+                    dlBtn.style.color = '#15803D';
+                    
+                    // ইউজার চাইলে যেনো পরবর্তীতে আবারও ডাউনলোড করতে পারে তাই স্টেট রিসেট করা হলো
+                    isDownloading = false; 
+                }, 2000);
+            }, 1500);
+        });
+
+        // --- Image Preview (Lightbox) Logic ---
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImg");
+        const closeModalBtn = document.getElementById("closeModalBtn");
+        const screenshots = document.querySelectorAll(".screenshot-item img");
+
+        // Open Modal
+        screenshots.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = "flex";
+                // setTimeout is used to allow the display block to register before animating opacity
+                setTimeout(() => { modal.classList.add("show"); }, 10);
+                
+                // Set modal image to clicked image src. 
+                // Since it's the exact same URL, the browser fetches it instantly from its local cache.
+                modalImg.src = this.src; 
+                
+                // Prevent background scrolling
+                document.body.style.overflow = "hidden"; 
+            });
+        });
+
+        // Close Modal Function
+        function closeModal() {
+            modal.classList.remove("show");
+            setTimeout(() => { modal.style.display = "none"; }, 300); // match css transition time
+            document.body.style.overflow = ""; // Restore background scrolling
+        }
+
+        // Close when clicking the "X" button
+        closeModalBtn.addEventListener('click', closeModal);
+
+        // Close when clicking anywhere on the black background
+        modal.addEventListener('click', function(e) {
+            if (e.target !== modalImg) {
+                closeModal();
+            }
         });
     </script>
 </body>
