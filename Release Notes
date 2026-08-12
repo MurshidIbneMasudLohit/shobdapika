@@ -1,0 +1,76 @@
+Shobdapika v1.0.0 Release Notes
+Version: 1.0.0 Build Type: Initial Release APK Size: 11,088 KB Platform: Android (Minimum SDK 24)
+Release Overview
+Shobdapika is a professional digital publishing platform dedicated to Bengali literature and original content. This version marks the official deployment of a managed ecosystem designed to bridge the gap between independent writers and a quality-conscious readership. The application provides a secure, streamlined environment for creating, reviewing, and consuming high-quality Bengali articles.
+Core Features
+•
+Authentication and Identity: Integrated secure authentication via Google Identity Services. Users can establish a digital presence with customizable profiles, unique usernames, and personal biographies.
+•
+Article Composition Suite: A specialized editor featuring mandatory character thresholds (minimum 10-character titles and 500-character content) to ensure substantive contributions.
+•
+Draft Management System: Robust local synchronization and session restoration capabilities. Articles are automatically saved to prevent data loss, with dedicated management for manual drafts.
+•
+Content Discovery: Multi-layered navigation including home feeds, category-based exploration, and a comprehensive search engine for locating specific articles or authors.
+•
+User Engagement: Full integration of social features including article appreciation (Likes), content curation (Bookmarks/Saved Articles), and author following systems.
+Content Management and Quality
+•
+Administrative Review Process: To maintain high editorial standards, all submitted articles undergo a structured administrative review before becoming public.
+•
+Submission Governance: A controlled publishing frequency is implemented to ensure platform stability and content diversity.
+•
+Interactive Notifications: Real-time updates for user interactions, ensuring authors remain informed of their audience's engagement.
+Security and User Protection
+•
+Proactive Moderation: Real-time monitoring of account status and a centralized enforcement system to handle policy violations.
+•
+Safety Infrastructure: Integrated tools for reporting inappropriate content and a formal process for authors to request the withdrawal (unpublishing) of their own articles.
+•
+Data Integrity: Reliable data persistence utilizing Google Firebase infrastructure for secure storage and low-latency access.
+Technical Specification
+•
+Framework: Built on native Android architecture using Kotlin and Java.
+•
+Infrastructure: Powered by Google Firebase (Authentication, Firestore, Storage, and Analytics).
+•
+Performance: Optimized binary size at 10.8 MB for efficient distribution and installation.
+•
+Update Management: Integrated update verification system to ensure all users operate on the most secure version of the platform.
+শব্দাপিকা v১.০.০ রিলিজ নোট
+ভার্সন: ১.০.০ টাইপ: প্রাথমিক প্রকাশ (Initial Release) এপিকে সাইজ: ১১,০৮৮ কিলোবাইট প্ল্যাটফর্ম: অ্যান্ড্রয়েড (মিনিমাম এসডিকে ২৪)
+সংক্ষিপ্ত বিবরণ
+শব্দাপিকা হলো একটি পেশাদার ডিজিটাল প্রকাশনা প্ল্যাটফর্ম যা মূলত বাংলা সাহিত্য এবং মৌলিক বিষয়বস্তু প্রচারের জন্য তৈরি করা হয়েছে। এই ভার্সনটির মাধ্যমে একটি নিয়ন্ত্রিত ইকোসিস্টেমের আনুষ্ঠানিক যাত্রা শুরু হলো, যা লেখক এবং মানসম্মত পাঠকদের মধ্যে সংযোগ স্থাপন করবে। অ্যাপটি উচ্চমানের বাংলা আর্টিকেল তৈরি, পর্যালোচনা এবং পড়ার জন্য একটি নিরাপদ ও আধুনিক পরিবেশ প্রদান করে।
+মূল বৈশিষ্ট্যসমূহ
+•
+অথেন্টিকেশন এবং প্রোফাইল: গুগল আইডেন্টিটি সার্ভিসের মাধ্যমে নিরাপদ সাইন-ইন সুবিধা। ব্যবহারকারীরা কাস্টম প্রোফাইল, ইউনিক ইউজারনেম এবং বায়ো সেটআপ করার মাধ্যমে তাদের নিজস্ব ডিজিটাল পরিচয় তৈরি করতে পারবেন।
+•
+আর্টিকেল এডিটর: মানসম্মত লেখা নিশ্চিত করতে বিশেষায়িত এডিটর যেখানে শিরোনামের জন্য সর্বনিম্ন ১০ অক্ষর এবং মূল কন্টেন্টের জন্য সর্বনিম্ন ৫০০ অক্ষরের সীমাবদ্ধতা রয়েছে।
+•
+ড্রাফট ম্যানেজমেন্ট: স্বয়ংক্রিয় লোকাল সিঙ্ক্রোনাইজেশন এবং সেশন রিস্টোরেশন সুবিধা। ডাটা লস রোধ করতে লেখাগুলো স্বয়ংক্রিয়ভাবে সংরক্ষিত হয় এবং ব্যবহারকারীরা ম্যানুয়ালি তাদের ড্রাফট পরিচালনা করতে পারেন।
+•
+কন্টেন্ট এক্সপ্লোরেশন: হোম ফিড, টপিক ভিত্তিক বিভাগ এবং নির্দিষ্ট আর্টিকেল বা লেখক খুঁজে বের করার জন্য উন্নত সার্চ ইঞ্জিন।
+•
+ব্যবহারকারী ইন্টারঅ্যাকশন: লাইক, বুকমার্ক (সেভ) এবং প্রিয় লেখকদের অনুসরণ (Follow) করার পূর্ণ সুবিধা।
+কন্টেন্ট ম্যানেজমেন্ট এবং গুণমান
+•
+প্রশাসনিক পর্যালোচনা: প্রকাশনার উচ্চমান বজায় রাখতে সমস্ত আর্টিকেল জনসাধারণের জন্য উন্মুক্ত করার আগে প্রশাসনিক পর্যালোচনার মধ্য দিয়ে যায়।
+•
+সাবমিশন নিয়ন্ত্রণ: প্ল্যাটফর্মের স্থায়িত্ব এবং বিষয়বস্তুর বৈচিত্র্য বজায় রাখতে আর্টিকেল প্রকাশের ফ্রিকোয়েন্সি নিয়ন্ত্রণ করা হয়েছে।
+•
+রিয়েল-টাইম নোটিফিকেশন: ফলো এবং লাইক সহ অন্যান্য ইন্টারঅ্যাকশনের জন্য তাৎক্ষণিক নোটিফিকেশন ব্যবস্থা।
+নিরাপত্তা এবং সুরক্ষা
+•
+সক্রিয় মডারেশন: অ্যাকাউন্ট স্ট্যাটাস রিয়েল-টাইম মনিটরিং এবং নীতিমালা লঙ্ঘনের ক্ষেত্রে কেন্দ্রীয় প্রয়োগ ব্যবস্থা।
+•
+রিপোর্টিং টুলস: অনুপযুক্ত কন্টেন্ট রিপোর্ট করার সুবিধা এবং লেখকদের নিজস্ব আর্টিকেল অপ্রকাশের (Unpublish) অনুরোধ করার আনুষ্ঠানিক প্রক্রিয়া।
+•
+ডাটা ইন্টিগ্রিটি: নিরাপদ স্টোরেজ এবং দ্রুত অ্যাক্সেস নিশ্চিত করতে গুগল ফায়ারবেস অবকাঠামো ব্যবহার করা হয়েছে।
+প্রযুক্তিগত তথ্যাবলী
+•
+ফ্রেমওয়ার্ক: কোটলিন এবং জাভা ব্যবহার করে নেটিভ অ্যান্ড্রয়েড আর্কিটেকচারে নির্মিত।
+•
+ইনফ্রাস্ট্রাকচার: গুগল ফায়ারবেস (Authentication, Firestore, Storage, and Analytics) দ্বারা পরিচালিত।
+•
+পারফরম্যান্স: সাশ্রয়ী ইনস্টলেশন নিশ্চিত করতে ১০.৮ মেগাবাইট অপ্টিমাইজড বাইনারি সাইজ।
+•
+আপডেট ম্যানেজমেন্ট: নিরাপদ এবং আধুনিক অভিজ্ঞতা নিশ্চিত করতে ইন্টিগ্রেটেড আপডেট ভেরিফিকেশন সিস্টেম।
